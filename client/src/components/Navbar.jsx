@@ -25,6 +25,12 @@ const Navbar = () => {
     navigate("/login");
   };
 
+  // const handleClick = (ele) => {
+    
+  //     navigate('/report');  
+  
+  // };
+
   return (
     <header>
       <nav className={iconActive ? "nav-active" : ""}>
@@ -37,6 +43,9 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to={"/doctors"}>Doctors</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/report"}>Check Your Sympton</NavLink>
           </li>
           {token && user.isAdmin && (
             <li>

@@ -7,6 +7,7 @@ import { Protected, Public, Admin } from "./middleware/route";
 import React, { lazy, Suspense } from "react";
 import Loading from "./components/Loading";
 import RoomPage from './pages/RoomPage';
+import Report from './pages/Report';
 
 
 const Home = lazy(() => import("./pages/Home"));
@@ -109,6 +110,7 @@ function App() {
             }
           />
           <Route path="/room" element={<RoomPage />} />
+          <Route path="/report" element={<Report />} />
           <Route
             path="*"
             element={<Error />}
