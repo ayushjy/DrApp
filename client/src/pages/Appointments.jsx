@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
 import "../styles/user.css";
 
 const Appointments = () => {
@@ -61,6 +62,14 @@ const Appointments = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleClick = (ele) => {
+    if (ele?.status !== "Completed") {
+      navigate('/room');  
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -108,7 +117,7 @@ const Appointments = () => {
                         <td>{ele?.time}</td>
                         <td>{ele?.createdAt.split("T")[0]}</td>
                         <td>{ele?.updatedAt.split("T")[1].split(".")[0]}</td>
-                        <td><button className={ele?.status === "Completed" ? "text-gray-200 bg-red-500 px-2 py-1 rounded-lg cursor-not-allowed" : "text-gray-200 bg-green-500 px-2 py-1 rounded-lg"}disabled={ele?.status === "Completed"}>{ele?.status=="Completed"?"Ended":"Start"}</button></td>
+                        <td><button onClick={handleClick}  className={ele?.status === "Completed" ? "text-gray-200 bg-red-500 px-2 py-1 rounded-lg cursor-not-allowed" : "text-gray-200 bg-green-500 px-2 py-1 rounded-lg"}disabled={ele?.status === "Completed"}>{ele?.status=="Completed"?"Ended":"Start"}</button></td>
                         <td>{ele?.status}</td>
                         {userId === ele?.doctorId?._id ? (
                           <td>

@@ -6,6 +6,8 @@ import { Toaster } from "react-hot-toast";
 import { Protected, Public, Admin } from "./middleware/route";
 import React, { lazy, Suspense } from "react";
 import Loading from "./components/Loading";
+import RoomPage from './pages/RoomPage';
+
 
 const Home = lazy(() => import("./pages/Home"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -106,6 +108,7 @@ function App() {
               </Protected>
             }
           />
+          <Route path="/room" element={<RoomPage />} />
           <Route
             path="*"
             element={<Error />}
