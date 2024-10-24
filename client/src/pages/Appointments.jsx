@@ -66,7 +66,7 @@ const Appointments = () => {
 
   const handleClick = (ele) => {
     if (ele?.status !== "Completed") {
-      navigate('/room');  // Navigate to the Roompage when "Start" is clicked
+      navigate('/room');  
     }
   };
 
@@ -117,7 +117,7 @@ const Appointments = () => {
                         <td>{ele?.time}</td>
                         <td>{ele?.createdAt.split("T")[0]}</td>
                         <td>{ele?.updatedAt.split("T")[1].split(".")[0]}</td>
-                        <td><button  className={ele?.status === "Completed" ? "text-gray-200 bg-red-500 px-2 py-1 rounded-lg cursor-not-allowed" : "text-gray-200 bg-green-500 px-2 py-1 rounded-lg"}disabled={ele?.status === "Completed"}>{ele?.status=="Completed"?"Ended":"Start"}</button></td>
+                        <td><button onClick={handleClick}  className={ele?.status === "Completed" ? "text-gray-200 bg-red-500 px-2 py-1 rounded-lg cursor-not-allowed" : "text-gray-200 bg-green-500 px-2 py-1 rounded-lg"}disabled={ele?.status === "Completed"}>{ele?.status=="Completed"?"Ended":"Start"}</button></td>
                         <td>{ele?.status}</td>
                         {userId === ele?.doctorId?._id ? (
                           <td>
